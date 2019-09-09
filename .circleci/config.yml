@@ -19,12 +19,10 @@ jobs:
           when: on_success
           command: |
             curl https://postman-demo-n6am0.demo-transposit.com/api/v1/execute-http/webhook?api_key=dvamftnku6qug2km0b9t3aucj2 -d '{"payload":{"reponame":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_parameters":{"CIRCLE_JOB":"'"$CIRCLE_JOB"'"},"outcome":"fixed","build_url":"'"$CIRCLE_BUILD_URL"'"}}' -H "Content-Type: application/json" -X POST --fail
-
 orbs:
   slack: circleci/slack@3.3.0
 workflows:
   your-workflow:
     jobs:
       - build
-      - notify_job_status:
-
+      - notify_job_status
