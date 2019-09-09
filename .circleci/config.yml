@@ -1,4 +1,5 @@
-version: 2
+
+version: 2.1
 jobs:
   build:
     docker:
@@ -6,9 +7,16 @@ jobs:
     steps:
       - checkout
       - run: exit 0
+      - slack/notify:
+          color: '#42e2f4'
+          #mentions: 'USERID1,USERID2,'
+          message: This is a custom message notification
+          webhook: https://hooks.slack.com/services/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
+orbs:
+  slack: circleci/slack@3.3.0
+version: 2.1
 workflows:
-  version: 2
-  build:
+  your-workflow:
     jobs:
       - build
 
