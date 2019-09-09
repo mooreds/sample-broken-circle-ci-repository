@@ -1,4 +1,3 @@
-
 version: 2.1
 jobs:
   build:
@@ -14,7 +13,6 @@ jobs:
           webhook: https://hooks.slack.com/services/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
 orbs:
   slack: circleci/slack@3.3.0
-version: 2.1
 workflows:
   your-workflow:
     jobs:
