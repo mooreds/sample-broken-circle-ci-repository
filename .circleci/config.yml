@@ -1,4 +1,13 @@
 version: 2.1
+commands:
+  notify_job_status:
+    description: Send webhook to trigger postman check
+    steps:
+      - run:
+          name: On success
+          when: on_success
+          command: |
+            curl https://postman-demo-n6am0.demo-transposit.com/api/v1/execute-http/webhook?api_key=dvamftnku6qug2km0b9t3aucj2 -d '{"payload":{"reponame":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_parameters":{"CIRCLE_JOB":"'"$CIRCLE_JOB"'"},"outcome":"fixed","build_url":"'"$CIRCLE_BUILD_URL"'"}}' -H "Content-Type: application/json" -X POST --fail
 jobs:
   build:
     docker:
@@ -11,18 +20,10 @@ jobs:
           #mentions: 'USERID1,USERID2,'
           message: This is a custom message notification
           webhook: https://hooks.slack.com/services/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
-  notify_job_status:
-    description: Send webhook to trigger postman check
-    steps:
-      - run:
-          name: On success
-          when: on_success
-          command: |
-            curl https://postman-demo-n6am0.demo-transposit.com/api/v1/execute-http/webhook?api_key=dvamftnku6qug2km0b9t3aucj2 -d '{"payload":{"reponame":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_parameters":{"CIRCLE_JOB":"'"$CIRCLE_JOB"'"},"outcome":"fixed","build_url":"'"$CIRCLE_BUILD_URL"'"}}' -H "Content-Type: application/json" -X POST --fail
+      - notify_job_status
 orbs:
   slack: circleci/slack@3.3.0
 workflows:
   your-workflow:
     jobs:
       - build
-      - notify_job_status
