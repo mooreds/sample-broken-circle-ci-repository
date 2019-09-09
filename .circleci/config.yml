@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      #- run: <command>
+      - run: exit 1
 workflows:
   version: 2
   build_and_fail:
