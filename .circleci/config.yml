@@ -8,7 +8,7 @@ jobs:
       #- run: <command>
 workflows:
   version: 2
-  build_and_test:
+  build_and_fail:
     jobs:
       - build
 
