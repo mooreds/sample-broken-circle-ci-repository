@@ -18,7 +18,7 @@ jobs:
       - slack/notify:
           color: '#42e2f4'
           #mentions: 'USERID1,USERID2,'
-          message: This is a custom message notification
+          message: Your build has finished.
           webhook: https://hooks.slack.com/services/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
       - notify_job_status
 orbs:
