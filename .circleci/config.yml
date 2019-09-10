@@ -19,7 +19,7 @@ jobs:
           color: '#42e2f4'
           #mentions: 'USERID1,USERID2,'
           message: This is a custom message notification
-          webhook: https://hooks.slack.com/services/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
+          webhook: https://hooks.slack.com/services/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
       - notify_job_status
 orbs:
   slack: circleci/slack@3.3.0
