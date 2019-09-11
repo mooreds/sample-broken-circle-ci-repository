@@ -19,7 +19,7 @@ jobs:
       - slack/notify:
           color: '#42e2f4'
           message: Your build has no finished.
-          webhook: https://slack-postman-qqifv.demo-transposit.com/api/v1/execute-http/webhook_slack_button?api_key=39jup4cr6la8f9afpiddrmc0f6
+          webhook: https://hooks.slack.com/services/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
       - notify_job_status
 orbs:
   slack: circleci/slack@3.3.0
