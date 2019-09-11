@@ -18,7 +18,7 @@ jobs:
       - run: exit 0
       - slack/notify:
           color: '#42e2f4'
-          message: Your build has no finished.
+          message: Your build has finished.
           webhook: https://hooks.slack.com/services/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
       - notify_job_status
 orbs:
