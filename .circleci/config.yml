@@ -20,7 +20,7 @@ jobs:
           color: '#42e2f4'
           #mentions: 'USERID1,USERID2,'
           message: Your build has finished.
-          webhook: https://hooks.slack.com/services/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
+          webhook: https://slack-postman-qqifv.demo-transposit.com/api/v1/execute-http/webhook_circleci?api_key=39jup4cr6la8f9afpiddrmc0f6
       - notify_job_status
 orbs:
   slack: circleci/slack@3.3.0
